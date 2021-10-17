@@ -2,12 +2,14 @@ import {StyleSheet, Dimensions} from 'react-native';
 
 export default StyleSheet.create({
   container: {
-    backgroundColor: '#e9ecef',
+    paddingHorizontal: 10,
+    paddingBottom: 10,
+    flex: 0.5,
+    justifyContent: 'space-between',
   },
   image: {
-    height: Dimensions.get('window').height / 4,
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
+    height: Dimensions.get('window').width / 2,
+    borderRadius: 10,
   },
   title: {
     fontWeight: 'bold',
@@ -21,5 +23,9 @@ export default StyleSheet.create({
     textAlign: 'right',
     color: 'red',
   },
-  inner_container: {padding: 5},
+  inner_container: {
+    padding: 5,
+    backgroundColor: '#e9ecef',
+    borderRadius: 10,
+  },
 });

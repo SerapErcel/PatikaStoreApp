@@ -11,29 +11,37 @@ import products_data from './products.json';
 import ProductCard from './components/ProductCard';
 function App() {
   const [text, onChangeText] = React.useState();
-  const renderProducts = ({item}) => <ProductCard products={item} />;
+  const renderProducts = ({ item }) => <ProductCard  products={item} />;
 
   return (
-      <View>
-        <Text style={styles.baseText}>PATIKASTORE</Text>
-        <SafeAreaView>
-          <TextInput
-            style={styles.input}
-            onChangeText={onChangeText}
-            value={text}
-            placeholder="Ara..."
-          />
-          <FlatList
-            keyExtractor={item => item.id.toString()}
-            data={products_data}
-            renderItem={renderProducts}
-          />
-        </SafeAreaView>
-      </View>
+    <View >
+      <Text style={styles.baseText}>PATIKASTORE</Text>
+      <TextInput
+        style={styles.input}
+        onChangeText={onChangeText}
+        value={text}
+        placeholder="Ara..."
+      />
+      <SafeAreaView style={styles.container}>
+        <FlatList
+          numColumns={2}
+          keyExtractor={item => item.id.toString()}
+          data={products_data}
+          renderItem={renderProducts}
+          showsHorizontalScrollIndicator={false}
+        />
+      </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+
   baseText: {
     fontSize: 22,
     color: 'purple',
@@ -45,6 +53,7 @@ const styles = StyleSheet.create({
     height: 40,
     padding: 10,
     margin: 15,
+    marginBottom: 10,
     borderRadius: 10,
     backgroundColor: '#e9ecef',
   },
