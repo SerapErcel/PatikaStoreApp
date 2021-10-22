@@ -1,14 +1,14 @@
 import {StyleSheet, Dimensions} from 'react-native';
 
 export default StyleSheet.create({
-  container: {
+  product_container: {
     paddingHorizontal: 10,
     paddingBottom: 10,
-    flex: 0.5,
+    width: Dimensions.get('window').width / 2,
     justifyContent: 'space-between',
   },
   image: {
-    height: Dimensions.get('window').width / 2,
+    height: Dimensions.get('window').height / 3,
     borderRadius: 10,
   },
   title: {

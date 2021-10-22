@@ -11,10 +11,10 @@ import products_data from './products.json';
 import ProductCard from './components/ProductCard';
 function App() {
   const [text, onChangeText] = React.useState();
-  const renderProducts = ({ item }) => <ProductCard  products={item} />;
+  const renderProducts = ({item}) => <ProductCard products={item} />;
 
   return (
-    <View >
+    <View>
       <Text style={styles.baseText}>PATIKASTORE</Text>
       <TextInput
         style={styles.input}
@@ -25,6 +25,7 @@ function App() {
       <SafeAreaView style={styles.container}>
         <FlatList
           numColumns={2}
+          columnWrapperStyle={{justifyContent: 'space-between'}}
           keyExtractor={item => item.id.toString()}
           data={products_data}
           renderItem={renderProducts}
@@ -34,11 +35,9 @@ function App() {
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    flexDirection: 'row',
+    flexDirection: 'column',
     flexWrap: 'wrap',
   },
 
